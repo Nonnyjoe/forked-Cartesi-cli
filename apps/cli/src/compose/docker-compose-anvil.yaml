@@ -1,7 +1,7 @@
 services:
     anvil:
         image: ${CARTESI_SDK_IMAGE}
-        command: ["devnet", "--block-time", "${BLOCK_TIME:-5}"]
+        command: ["devnet", "--odyssey", "--block-time", "${BLOCK_TIME:-5}"]
         healthcheck:
             test: ["CMD", "eth_isready"]
             start_period: 10s

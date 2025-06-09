@@ -118,6 +118,15 @@ const availableServices: Service[] = [
         waitTitle: `${chalk.cyan("passkey")} service starting...`,
         errorTitle: `${chalk.red("passkey")} service failed`,
     },
+    {
+        name: "porto",
+        file: "docker-compose-porto.yaml",
+        healthySemaphore: "porto-relay",
+        healthyTitle: (port) =>
+            `${chalk.cyan("porto")} service ready at ${chalk.cyan(`${host}:${port}/porto/{rpc,dialog,manager}`)}`,
+        waitTitle: `${chalk.cyan("porto")} service starting...`,
+        errorTitle: `${chalk.red("porto")} service failed`,
+    },
 ];
 
 const serviceMonitorTask = (options: {
