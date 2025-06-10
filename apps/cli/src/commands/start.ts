@@ -27,6 +27,15 @@ const host = "http://127.0.0.1";
 // services configuration
 const baseServices: Service[] = [
     {
+        name: "launchpad",
+        file: "docker-compose-launchpad.yaml",
+        healthySemaphore: "launchpad",
+        healthyTitle: (port) =>
+            `${chalk.cyan("launchpad")} service ready at ${chalk.cyan(`${host}:${port}/`)}`,
+        waitTitle: `${chalk.cyan("launchpad")} service starting...`,
+        errorTitle: `${chalk.red("launchpad")} service failed`,
+    },
+    {
         name: "anvil",
         file: "docker-compose-anvil.yaml",
         healthySemaphore: "anvil",

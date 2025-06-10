@@ -1,0 +1,10 @@
+http:
+    routers:
+        launchpad:
+            rule: "Path(`/`) || PathPrefix(`/assets`)"
+            service: launchpad
+    services:
+        launchpad:
+            loadBalancer:
+                servers:
+                    - url: "http://launchpad:80"
